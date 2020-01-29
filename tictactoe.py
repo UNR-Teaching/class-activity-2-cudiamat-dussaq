@@ -1,10 +1,11 @@
 """ Note: Although the skeleton below is in Python, you may use any programming language you want so long as the language supports object-oriented programming, 
           and you make use of relevant object-oriented design principles.
 """
-~~~~~~~~~~~~
 
-class Board(object):
+class Board():
 
+    tictactoeBoard = []
+    
     def __init__(self):
         """
         Initializes the Board of size 3x3
@@ -44,7 +45,4 @@ class Board(object):
         
         pass
         
-if __name__ == '__main__':
-    board = Board()
-    winner = board.play_game()
-    print("{} has won!".format(winner))
+
