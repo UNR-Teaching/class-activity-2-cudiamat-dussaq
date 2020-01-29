@@ -4,12 +4,12 @@ from tictactoe import Board
 class TestBoardMarkBoard(unittest.TestCase):
     def test_markBoardLocationCheck(self):
         b = Board()
-        b.mark_square(2, 1, "X")
-        self.assertEqual(b.tictactoeBoard, ["-", "-", "-", "-", "-", "X", "-", "-", "-"])
+        b.mark_square(2, 1, "x")
+        self.assertEqual(b.tictactoeBoard, ["-", "-", "-", "-", "-", "x", "-", "-", "-"])
 
     def test_markBoardOutOfBounds(self):
         b = Board()
-        self.assertFalse(b.mark_square(3, 3, "X"))
+        self.assertFalse(b.mark_square(3, 3, "x"))
 
     def test_markBoardBadInput(self):
         b = Board()
@@ -17,11 +17,11 @@ class TestBoardMarkBoard(unittest.TestCase):
 
     def test_markBoardSuccess(self):
         b = Board()
-        self.assertTrue(b.mark_square(1, 1, "X"))
+        self.assertTrue(b.mark_square(1, 1, "x"))
 
     def test_markBoardWrongCase(self):
         b = Board()
-        self.assertTrue(b.mark_square(1, 1, "x"))
+        self.assertTrue(b.mark_square(1, 1, "X"))
 
 
 class TestBoardHasWinner(unittest.TestCase):
@@ -47,4 +47,6 @@ class TestBoardValidInput(unittest.TestCase):
         self.assertTrue(b.valid_input(1, 1))
 
 if __name__ == '__main__':
+    print("here")
     unittest.main()
+    print("here")
