@@ -5,7 +5,7 @@ class TestBoardMarkBoard(unittest.TestCase):
     def test_markBoardLocationCheck(self):
         b = Board()
         b.mark_square(2, 1, "x")
-        self.assertEqual(b.tictactoeBoard, ["-", "-", "-", "-", "-", "x", "-", "-", "-"])
+        self.assertEqual(b.tictactoeBoard, ["-", "-", "-", "-", "x", "-", "-", "-", "-"])
 
     def test_markBoardOutOfBounds(self):
         b = Board()
@@ -27,9 +27,9 @@ class TestBoardMarkBoard(unittest.TestCase):
 class TestBoardHasWinner(unittest.TestCase):
     def test_hasWinner(self):
         b = Board()
-        b.mark_square(0,0,1)
-        b.mark_square(1,0,1)
-        b.mark_square(2,0,1)
+        b.mark_square(0,0,"x")
+        b.mark_square(1,0,"x")
+        b.mark_square(2,0,"x")
         self.assertTrue(b.has_winner())
 
     def test_noWinner(self):
