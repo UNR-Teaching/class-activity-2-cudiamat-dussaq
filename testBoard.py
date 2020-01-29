@@ -25,11 +25,25 @@ class TestBoardMarkBoard(unittest.TestCase):
 
 
 class TestBoardHasWinner(unittest.TestCase):
-    def test_hasWinner(self):
+    def test_hasWinnerColumn(self):
         b = Board()
         b.mark_square(0,0,"x")
         b.mark_square(1,0,"x")
         b.mark_square(2,0,"x")
+        self.assertTrue(b.has_winner())
+
+    def test_hasWinnerRow(self):
+        b = Board()
+        b.mark_square(0,0,"x")
+        b.mark_square(0,1,"x")
+        b.mark_square(0,2,"x")
+        self.assertTrue(b.has_winner())
+
+    def test_hasWinnerDiaganal(self):
+        b = Board()
+        b.mark_square(0,0,"x")
+        b.mark_square(1,1,"x")
+        b.mark_square(2,2,"x")
         self.assertTrue(b.has_winner())
 
     def test_noWinner(self):
