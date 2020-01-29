@@ -32,6 +32,9 @@ class Board:
 
         :return: ????
         """
+        if(not isInstance(player, str)):
+            return False
+        
         if(self.valid_input(column,row)):
             input = (row*3) + column
             
