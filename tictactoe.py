@@ -4,7 +4,7 @@
 
 class Board:
 
-    tictactoeBoard = []
+    tictactoeBoard = ["","","","","","","","",""]
     
     def __init__(self):
         """
@@ -13,7 +13,7 @@ class Board:
         # 0-8
         # 0 - empty space, 1 - x's, 2 - o's
         for x in range(9):
-            self.tictactoeBoard.append('-')
+            self.tictactoeBoard[x] = '-'
 
     def valid_input(self, column,row):
         input = (row*3) + column
@@ -32,8 +32,6 @@ class Board:
 
         :return: ????
         """
-        if(not isInstance(player, str)):
-            return False
         
         if(self.valid_input(column,row)):
             input = (row*3) + column

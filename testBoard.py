@@ -5,7 +5,7 @@ class TestBoardMarkBoard(unittest.TestCase):
     def test_markBoardLocationCheck(self):
         b = Board()
         b.mark_square(2, 1, "x")
-        self.assertEqual(b.tictactoeBoard, ["-", "-", "-", "-", "x", "-", "-", "-", "-"])
+        self.assertEqual(b.tictactoeBoard, ["-", "-", "-", "-", "-", "x", "-", "-", "-"])
 
     def test_markBoardOutOfBounds(self):
         b = Board()
