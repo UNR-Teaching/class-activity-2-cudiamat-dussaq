@@ -12,7 +12,7 @@ class Board:
         """
         # 0-8
         # 0 - empty space, 1 - x's, 2 - o's
-        for x in range(8):
+        for x in range(9):
             self.tictactoeBoard.append('-')
 
     def valid_input(self, column,row):
@@ -32,8 +32,9 @@ class Board:
 
         :return: ????
         """
-        if(self.valid_input):
+        if(self.valid_input(column,row)):
             input = (row*3) + column
+            
             self.tictactoeBoard[input] = player.lower()
             self.display_board()
             return True
@@ -48,21 +49,29 @@ class Board:
         """
         # Check Columns 0-2
         for columns in range(2):
-            if(tictactoeBoard[columns] == tictactoeBoard[columns+3] and
-               tictactoeBoard[columns+3] == tictactoeBoard[columns+6]):
+            if(self.tictactoeBoard[columns] == self.tictactoeBoard[columns+3] and
+               self.tictactoeBoard[columns+3] == self.tictactoeBoard[columns+6]):
                 return True
 
         # Check Rows..
-        '''
-        for rows in range(2):
-            if(tictactoeBoard[] == tictactoeBoard[+1] and
-               tictactoeBoard[columns+1] == tictactoeBoard[columns+2]):
-        '''
+        
+        for rows in range(0,9,3):
+            if(self.tictactoeBoard[rows] == self.tictactoeBoard[rows+1] and
+               self.tictactoeBoard[rows+1] == self.tictactoeBoard[rows+2]):
+                return True
+        
 
         # Check Diagonals
+        if(self.tictactoeBoard[0] == self.tictactoeBoard[4] and
+           self.tictactoeBoard[4] == self.tictactoeBoard[8]):
+            return True
+        if(self.tictactoeBoard[2] == self.tictactoeBoard[4] and
+           self.tictactoeBoard[4] == self.tictactoeBoard[6]):
+            return True
 
+        # Failed All Checks for winners
+        return False
         
-        pass
 
     def play_game(self):
         """
@@ -72,7 +81,21 @@ class Board:
         :return: (str) the letter representing the player who won
         """
         
-        pass
+        
+        while(not self.has_winner()):
+            # Input from player
+            print("Type in position (column, row, symbol)")
+            c = input()
+            r = input()
+            s = input()
+
+            # Mark Square Attempt
+            if(not self.mark_square(int(c),int(r), str(s))):
+                print("Square mark Failed. Input again")
+            else:
+                print("Square Marked")
+
+            
 
     def display_board(self):
        ''' 
@@ -81,7 +104,7 @@ for i in range(2):
                 print(self.tictactoeBoard[(x*3)+i])
             print()
 '''
-       for i in range(8):
+       for i in range(len(self.tictactoeBoard)):
            print(i)
            print(self.tictactoeBoard[i])
        

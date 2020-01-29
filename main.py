@@ -1,7 +1,9 @@
 from tictactoe import Board
 
+
 board = Board()
-board.mark_square(0,0,'X')
+#board.display_board()
+board.play_game()
 
 #if __name__ == '__main__':
 #    board = Board()
